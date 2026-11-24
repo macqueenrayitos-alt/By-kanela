@@ -1,0 +1,1330 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>By Kanela Sotto | Catálogo</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f8f5f2;
+    color: #39302d;
+    font-family: Arial, sans-serif;
+}
+
+/* ENCABEZADO */
+
+header {
+    background: #e9ddd5;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+header h1 {
+    font-family: Georgia, serif;
+    font-size: 35px;
+    font-weight: normal;
+    letter-spacing: 5px;
+}
+
+header p {
+    margin-top: 12px;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+/* TITULO DEL CATALOGO */
+
+.catalogo {
+    max-width: 1400px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+.titulo {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: normal;
+    margin-bottom: 35px;
+}
+
+/* PRODUCTOS */
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.producto {
+    background: white;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+/* IMAGENES */
+
+.fotos {
+    position: relative;
+    width: 100%;
+    background: #f8f5f2;
+    overflow: hidden;
+}
+
+.fotos img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    display: block;
+    cursor: zoom-in;
+}
+
+/* FLECHAS */
+
+.flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: rgba(255,255,255,0.9);
+    color: #39302d;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.izquierda {
+    left: 8px;
+}
+
+.derecha {
+    right: 8px;
+}
+
+.contador {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255,255,255,0.9);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* INFORMACION DEL PRODUCTO */
+
+.nombre {
+    font-size: 16px;
+    font-weight: normal;
+    margin-top: 15px;
+}
+
+.descripcion {
+    font-size: 13px;
+    color: #766a64;
+    line-height: 1.6;
+    margin-top: 10px;
+}
+
+.precio {
+    font-weight: bold;
+    margin-top: 12px;
+    color: #806052;
+    font-size: 15px;
+}
+
+.precio-mayor {
+    font-weight: bold;
+    margin-top: 7px;
+    color: #806052;
+    font-size: 15px;
+}
+
+.referencia {
+    color: #999;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* PIE DE PAGINA */
+
+footer {
+    text-align: center;
+    background: #e9ddd5;
+    padding: 35px 20px;
+    margin-top: 40px;
+}
+
+footer h3 {
+    font-family: Georgia, serif;
+    letter-spacing: 3px;
+    font-weight: normal;
+}
+
+footer p {
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+/* COMPUTADORES Y TABLETS */
+
+@media (max-width: 1000px) {
+    .productos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .producto {
+        padding: 8px;
+    }
+
+    header h1 {
+        font-size: 25px;
+        letter-spacing: 3px;
+    }
+
+    .nombre {
+        font-size: 14px;
+    }
+
+    .descripcion {
+        font-size: 12px;
+    }
+
+    .precio,
+    .precio-mayor {
+        font-size: 13px;
+    }
+
+    .fotos img {
+        max-height: 350px;
+    }
+
+    .flecha {
+        width: 32px;
+        height: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>BY KANELA SOTTO</h1>
+    <p>CATÁLOGO</p>
+</header>
+
+<section class="catalogo">
+
+    <h2 class="titulo">Nuestra colección</h2>
+
+    <div class="productos" id="productos"></div>
+
+</section>
+
+<footer>
+    <h3>BY KANELA SOTTO</h3>
+    <p>Catálogo de productos</p>
+</footer>
+
+<script>
+
+// ============================================
+// EDITA TUS PRODUCTOS EN ESTA LISTA
+// ============================================
+
+const productos = [
+
+    // PRODUCTO 1
+    {
+        nombre: "Pijama Copa #7",
+
+        descripcion:
+        "Pijama de dos piezas con blusa de copas en encaje negro y short estampado de puntos.",
+
+        precioUnidad: 45.000,
+
+        precioMayor: 31.000,
+
+        imagenes: [
+            "https://i.postimg.cc/Qx4kPg41/cpa7.jpg",
+            "https://i.postimg.cc/02MFVNnF/CP71.png",
+            "https://i.postimg.cc/vHCBKcsT/cp72.png",
+            "https://i.postimg.cc/85kPvvRV/cp73.png"
+        ]
+    },
+
+    // PRODUCTO 2
+    {
+        nombre: "Conjunto: JATZIRY",
+
+        descripcion:
+        "Conjunto Top y Tanga en algodon con diseño (hilo).",
+
+        precioUnidad: 45.000,
+
+        precioMayor: 26.000,
+
+        imagenes: [
+            "https://i.postimg.cc/KY7pVq1P/top1.jpg",
+            "https://i.postimg.cc/zGKxbtS0/top2.jpg",
+            "https://i.postimg.cc/L5GVhLJC/top3.jpg",
+            "https://i.postimg.cc/bwcTh0cD/top4.jpg",
+            "https://i.postimg.cc/B6XY6qhB/top5.jpg",
+            "https://i.postimg.cc/cH2DtVjz/top-6.jpg",
+            "https://i.postimg.cc/pXNGWMKm/top-7.jpg"
+        ]
+    },
+
+    // PRODUCTO 3
+    {
+        nombre: "Trio:Antonella",
+
+        descripcion:
+        "Talla Unica. short tanga top en Mayatex y encaje.",
+
+        precioUnidad: 50.000,
+
+        precioMayor: 33.000,
+
+        imagenes: [
+            "https://i.postimg.cc/fyV66745/a1.jpg",
+            "https://i.postimg.cc/TPTBRvMW/a2.jpg",
+            "https://i.postimg.cc/7Z4qTcrw/a3.jpg",
+            "https://i.postimg.cc/5t7JT2YF/a4.jpg",
+            "https://i.postimg.cc/DZRTfpcF/a5.jpg",
+            "https://i.postimg.cc/nc4JZkj5/a6.jpg"
+        ]
+    },
+
+    // PRODUCTO 4
+    {
+        nombre: "AZUCENA. MICKIE",
+
+        descripcion:
+        "Talla Unica. Falda tanga top en velo y encaje con diseño de mickie  .",
+
+        precioUnidad: 50.000,
+
+        precioMayor: 31.000,
+
+        imagenes: [
+            "https://i.postimg.cc/R04tZXZp/m1.jpg",
+            "https://i.postimg.cc/D09JkcNY/m2.jpg",
+            "https://i.postimg.cc/xjh6gJ5T/m3.jpg",
+            "https://i.postimg.cc/CxHJFvgn/m4.jpg",
+            "https://i.postimg.cc/PqXyNmfx/m5.jpg",
+            "https://i.postimg.cc/5trz1v6Z/m6.jpg"
+        ]
+    },
+
+    // PRODUCTO 5
+    {
+        nombre: "Enterizo con bolsillos",
+
+        descripcion:
+        "Talla Unica. enterizo en algodon con estampados.",
+
+        precioUnidad: 50.000,
+
+        precioMayor: 31.000,
+
+        imagenes: [
+            "https://i.postimg.cc/QdTG0Z1P/e1.jpg",
+            "https://i.postimg.cc/CL99ZrX2/e2.jpg",
+            "https://i.postimg.cc/zGW6TS1z/e3.jpg",
+            "https://i.postimg.cc/ZqSgHBT2/e4.jpg",
+            "https://i.postimg.cc/Fz7nz0ZY/e5.jpg",
+            "https://i.postimg.cc/yY3bzXWC/e6.jpg"
+        ]
+    },
+
+    // PRODUCTO 6
+    {
+        nombre: "Batola",
+
+        descripcion:
+        "batola y tanga en mayatex.",
+
+        precioUnidad: 50.000,
+
+        precioMayor: 31.000,
+
+        imagenes: [
+            "https://i.postimg.cc/zvQDHSYj/b1.jpg",
+            "https://i.postimg.cc/8kXzYDfw/b2.jpg",
+            "https://i.postimg.cc/13wR4qCH/b3.jpg",
+            "https://i.postimg.cc/CK0h8x9L/b4.jpg"  
+        ]
+    },
+
+    // PRODUCTO 7
+    {
+        nombre: "Duo Coqueta",
+
+        descripcion:
+        "Talla Unica. Pijama y Levantadora.",
+
+        precioUnidad: 70.000,
+
+        precioMayor: 44.000,
+
+        imagenes: [
+            "https://i.postimg.cc/DwnfJztx/p.jpg"
+        ]
+    },
+ 
+    // PRODUCTO 8
+    {
+        nombre: "Babydoll:Salome M y L",
+
+        descripcion:
+        "babydoll y cachetero.",
+
+        precioUnidad: 70.000,
+
+        precioMayor: 33.000,
+
+        imagenes: [
+            "https://i.postimg.cc/7P9K8tqK/s1.jpg",
+            "https://i.postimg.cc/yYrnWJgV/s2.jpg",
+            "https://i.postimg.cc/mgzj9bCX/s3.jpg",
+            "https://i.postimg.cc/hGV0CpC7/s4.jpg",
+            "https://i.postimg.cc/76Dnj0cQ/s5.jpg",
+            "https://i.postimg.cc/8czBzDTs/s6.jpg",
+            "https://i.postimg.cc/GtmJmrbf/s7.jpg"
+        ]
+    },
+
+    // PRODUCTO 9
+    {
+        nombre: "Pijama: Lucia",
+
+        descripcion:
+        "Talla Unica.pijama top y short.",
+
+        precioUnidad: 50.000,
+
+        precioMayor: 32.000,
+
+        imagenes: [
+            "https://i.postimg.cc/v85ccC4L/p1.jpg",
+            "https://i.postimg.cc/2SS6962n/p2.jpg",
+            "https://i.postimg.cc/d1rtZTVL/p3.jpg",
+            "https://i.postimg.cc/T31dqs3j/p4.jpg",
+            "https://i.postimg.cc/26RCY8Fd/p5.jpg",
+            "https://i.postimg.cc/xCvn1D6V/p6.jpg",
+            "https://i.postimg.cc/2yCmqct4/p7.jpg"
+        ]
+    },
+    
+    // PRODUCTO 10
+    {
+        nombre: "Enterizo:Alelia",
+
+        descripcion:
+        "Talla Unica. enterizo y tanga.",
+
+        precioUnidad: 45.000,
+
+        precioMayor: 30.000,
+
+        imagenes: [
+            "https://i.postimg.cc/50RqyTyh/al1.jpg",
+            "https://i.postimg.cc/MZng587b/al2.jpg",
+            "https://i.postimg.cc/fTXp4jgk/al3.jpg",   
+            "https://i.postimg.cc/9QhScRvJ/al4.jpg",
+            "https://i.postimg.cc/fRfPyWNg/al5.jpg",
+            "https://i.postimg.cc/ZqYMdkYC/al6.jpg",
+            "https://i.postimg.cc/76ftKgTp/al7.jpg"
+        ]
+    },
+  
+    // PRODUCTO 11
+    {
+        nombre: "Trio Camila",
+
+        descripcion:
+        "Talla Unica. Short top y tanga con estampados.",
+
+        precioUnidad: 45.000,
+
+        precioMayor: 29.000,
+
+        imagenes: [
+            "https://i.postimg.cc/zvPJ9wdQ/c1.jpg",
+            "https://i.postimg.cc/8CBT1gKD/c2.jpg",
+            "https://i.postimg.cc/4yMg8fdP/c3.jpg",
+            "https://i.postimg.cc/652w8vbB/c4.jpg",
+            "https://i.postimg.cc/0NxqXHk8/c5.jpg",
+            "https://i.postimg.cc/bJwfpDSL/c6.jpg",
+            "https://i.postimg.cc/v8jwwmY4/c7.jpg"
+        ]
+    },
+
+    // PRODUCTO 12
+{
+    nombre: "Conjunto Zara",
+    descripcion:
+    "Talla Unica. top y tanga con estampado.",
+    precioUnidad: 45.000,
+    precioMayor: 26.000,
+    imagenes: [ 
+           "https://i.postimg.cc/qRFKGK8c/z1.jpg",
+           "https://i.postimg.cc/sft6jQtT/z2.jpg",
+           "https://i.postimg.cc/tgSkLY3v/z3.jpg",
+           "https://i.postimg.cc/G3sK53Hh/z4.jpg",
+           "https://i.postimg.cc/Nf64QN8H/z5.jpg",
+           "https://i.postimg.cc/13yKXpM0/z6.jpg",
+           "https://i.postimg.cc/xdCyynwq/z7.jpg",
+           "https://i.postimg.cc/HLh06Fm0/z8.jpg"
+        ]
+    },
+
+    // PRODUCTO 13
+{
+    nombre: "Conjunto:Tulipan",
+descripcion: "S M L XL brallet tanga en mayatex y encaje broche trasero tiras graduables.",
+    precioUnidad: 45.000,
+    precioMayor: 30.000,
+    imagenes: [
+          "https://i.postimg.cc/cJm26xQG/T1.jpg",
+          "https://i.postimg.cc/28ZthF4t/T2.jpg",
+          "https://i.postimg.cc/k4HjtBDm/T3.jpg",
+          "https://i.postimg.cc/QN232Mmy/T4.jpg",
+          "https://i.postimg.cc/Z5ZhqD1r/T5.jpg",
+          "https://i.postimg.cc/rpwX1Ry5/T6.jpg",
+          "https://i.postimg.cc/PxCgcGwY/T7.jpg",
+          "https://i.postimg.cc/cHPpGDRT/T8.jpg",
+          "https://i.postimg.cc/D0stvq5w/T9.jpg",
+          "https://i.postimg.cc/KvS69Hvb/T10.jpg"
+       ]
+    },
+
+    // PRODUCTO 14
+{
+    nombre: "Pijama Trio Bolero",
+    descripcion: "Talla Unica. short blusa y tanga.",
+    precioUnidad: 45.000,
+    precioMayor: 28.000,
+    imagenes: [
+        "https://i.postimg.cc/wMnpZ77Y/tb1.jpg",
+        "https://i.postimg.cc/zXR5WScg/tb2.jpg",
+        "https://i.postimg.cc/DwkhcJ9Y/tb3.jpg",
+        "https://i.postimg.cc/QdQ3YNsM/tb4.jpg"
+       ]
+    },
+
+   // PRODUCTO 15
+{
+    nombre: "Babydoll Kassandra",
+    descripcion: "Talla Unica. Babydoll y tanga.",
+    precioUnidad: 50.000,
+    precioMayor: 33.000,
+    imagenes: [
+        "https://i.postimg.cc/PJ1HGdZ4/k1.jpg",
+        "https://i.postimg.cc/htDBwWGL/k2.jpg",
+        "https://i.postimg.cc/vTwRtCj8/k3.jpg",
+        "https://i.postimg.cc/yxmMQv42/k4.jpg",
+        "https://i.postimg.cc/fTK4Y2vk/k5.jpg",
+        "https://i.postimg.cc/PqCBstnq/k6.jpg",
+        "https://i.postimg.cc/ZnSgdpBr/k7.jpg"
+    ]
+},
+
+// PRODUCTO 16
+{
+    nombre: "VB:Brisa",
+    descripcion: " Talla Unica. top y tanga trae copa (asoliador).",
+    precioUnidad: 50.000,
+    precioMayor: 35.000,
+    imagenes: [
+           "https://i.postimg.cc/63j27LmX/v1.jpg",
+           "https://i.postimg.cc/bwcG2v3v/v2.jpg"  
+     ]
+},
+
+// PRODUCTO 17
+{
+    nombre: "Otoño",
+    descripcion: " Talla Unica. Salida de Baño .",
+    precioUnidad: 50.000,
+    precioMayor: 35.000,
+    imagenes: [
+          "https://i.postimg.cc/HsQMz5JC/o1.jpg",
+          "https://i.postimg.cc/cJ5tCBzX/o2.jpg",
+          "https://i.postimg.cc/BZFPZDBd/o3.jpg",
+          "https://i.postimg.cc/yYXJcH5Q/o4.jpg",
+          "https://i.postimg.cc/vmDDJ6mn/o5.jpg"
+    ]
+},
+
+// PRODUCTO 18
+{
+    nombre: "VB:Coral",
+    descripcion: "S M L XL Trae copa.",
+    precioUnidad: 70.000,
+    precioMayor: 40.000,
+    imagenes: [
+           "https://i.postimg.cc/66zJvbcr/co1.jpg",
+           "https://i.postimg.cc/rw0v7Vkz/co2.jpg",
+           "https://i.postimg.cc/q72WM1gp/co3.jpg",
+           "https://i.postimg.cc/jqMm5wqJ/co4.jpg"
+    ]
+},
+
+// PRODUCTO 19
+{
+    nombre: "Dalia",
+    descripcion: "S M L XL Brasier y tanga.",
+    precioUnidad: 45.000,
+    precioMayor: 29.000,
+    imagenes: [
+           "https://i.postimg.cc/jdz8fDtp/d1.jpg",
+           "https://i.postimg.cc/YCRbXT46/d2.jpg",
+           "https://i.postimg.cc/J0jQjFVV/d3.jpg",
+           "https://i.postimg.cc/44cwCY7Y/d4.jpg",
+           "https://i.postimg.cc/y8Lyh95f/d5.jpg", 
+           "https://i.postimg.cc/TwDjXsPk/d6.jpg",
+           "https://i.postimg.cc/j2YHqhwj/d7.jpg",
+           "https://i.postimg.cc/gc3yS1QG/d8.jpg"
+     ]
+},
+
+// PRODUCTO 20
+{
+    nombre: "Duo victoria",
+    descripcion: "Talla Unica. Bata brasier y tanga.",
+    precioUnidad: 70.000,
+    precioMayor: 50.000,
+    imagenes: [
+          "https://i.postimg.cc/pr0LcWtY/dv1.jpg",
+          "https://i.postimg.cc/c1TCLm82/dv2.jpg",
+          "https://i.postimg.cc/Nfz01jDX/dv3.jpg",
+          "https://i.postimg.cc/8ChPQBSd/dv4.jpg",
+          "https://i.postimg.cc/yxNVZMST/dv5.jpg",
+          "https://i.postimg.cc/RVNSVzmz/dv6.jpg"
+
+      ]
+},
+
+// PRODUCTO 21
+{
+    nombre: "Isabel",
+    descripcion: "Talla Unica. Pantalon y blusa(piel de durazno).",
+    precioUnidad: 55.000,
+    precioMayor: 36.000,
+    imagenes: [
+           "https://i.postimg.cc/6QjwNHPr/i1.jpg", 
+           "https://i.postimg.cc/66GKDffB/i2.jpg",
+           "https://i.postimg.cc/vZGdxFFs/i3.jpg" 
+     ]
+},
+
+// PRODUCTO 22
+{
+    nombre: "Helena",
+    descripcion: "Talla Unica. short y blusa (piel de durazno).",
+    precioUnidad: 50.000,
+    precioMayor: 32.000,
+    imagenes: [
+         "https://i.postimg.cc/0yhdHxkv/h1.jpg",
+         "https://i.postimg.cc/63fr3vdr/h2.jpg",
+         "https://i.postimg.cc/7PX1rSPr/h3.jpg"
+]
+},
+
+// PRODUCTO 23
+{
+    nombre: "Pijama Antonia",
+    descripcion: "Talla Unica. short y blusa.",
+    precioUnidad: 45.000,
+    precioMayor: 30.000,
+    imagenes: [   
+          "https://i.postimg.cc/NfSHQ4W6/pa1.jpg",
+          "https://i.postimg.cc/HLC8yLW2/pa2.jpg",
+          "https://i.postimg.cc/Qt8BfnT9/pa3.jpg",
+          "https://i.postimg.cc/L5hJpYvJ/pa4.jpg"
+]
+},
+
+// PRODUCTO 24
+{
+    nombre: "Conjunto Amaranta",
+    descripcion: "S M L XL.",
+    precioUnidad: 45.000,
+    precioMayor: 30.000,
+    imagenes: [
+        "https://i.postimg.cc/FK9svksM/ca1.jpg",
+        "https://i.postimg.cc/0jJ9npcv/ca2.jpg",
+        "https://i.postimg.cc/SNCMN8q3/ca3.jpg"
+]
+},
+
+// PRODUCTO 25
+{
+    nombre: "Conjunto:Rio",
+    descripcion: "Talla Unica. Blusa y Tanga (No incluye el brasier).",
+    precioUnidad: 45.000,
+    precioMayor: 29.000,
+    imagenes: [
+          "https://i.postimg.cc/5tY1b5Wn/cr1.jpg",
+          "https://i.postimg.cc/6qwNrD2D/cr2.jpg",
+          "https://i.postimg.cc/kXJmBPd7/cr3.jpg",
+          "https://i.postimg.cc/L6xMPQH7/cr4.jpg",
+          "https://i.postimg.cc/qvgHxcqz/cr5.jpg",
+          "https://i.postimg.cc/mDWx40wG/cr6.jpg"
+]
+},
+
+// PRODUCTO 26
+{
+    nombre: "Batola Yari",
+    descripcion: "Talla Unica. Batola y Tanga.",
+    precioUnidad: 45.000,
+    precioMayor: 31.000,
+    imagenes: [
+           "https://i.postimg.cc/Cx8m0d6x/y1.jpg",
+           "https://i.postimg.cc/1zZM3PLJ/y2.jpg",
+           "https://i.postimg.cc/vmLh1kyQ/y3.jpg",
+           "https://i.postimg.cc/k4JcWsMx/y4.jpg",
+           "https://i.postimg.cc/50smgz6N/y5.jpg"
+]
+},
+
+// PRODUCTO 27
+{
+    nombre: "Babydoll Cachetero",
+    descripcion: "M y L Mayatex.",
+    precioUnidad: 70.000,
+    precioMayor: 32.000,
+    imagenes: [
+        "https://i.postimg.cc/9QHyGbJX/bc1.jpg",
+        "https://i.postimg.cc/6pVnzZm1/bc2.jpg",
+        "https://i.postimg.cc/1zJ61QPw/bc3.jpg"
+]
+},
+
+// PRODUCTO 28
+{
+    nombre: "Babydoll tanga",
+    descripcion: "M y L Encaje y mayatex.",
+    precioUnidad: 70.000,
+    precioMayor: 31.000,
+    imagenes: [
+        "https://i.postimg.cc/7YZSXbkk/bt1.jpg",
+        "https://i.postimg.cc/YC4YKVjt/bt2.jpg",
+        "https://i.postimg.cc/SQDMXqzV/bt3.jpg",
+        "https://i.postimg.cc/02jJD3YD/bt4.jpg",
+        "https://i.postimg.cc/TYs59904/bt5.jpg" 
+]
+},
+
+// PRODUCTO 29
+{
+    nombre: "Pijama Satin",
+    descripcion: "M y L. short y blusa.",
+    precioUnidad: 45.000,
+    precioMayor: 33.000,
+    imagenes: [
+          "https://i.postimg.cc/prGCkFc9/ps1.jpg",
+          "https://i.postimg.cc/P58yzNW1/ps2.jpg",
+          "https://i.postimg.cc/zBqkrj9q/ps3.jpg"
+]
+},
+
+// PRODUCTO 30
+{
+    nombre: "Anturio",
+    descripcion: "S M L XL.",
+    precioUnidad: 35.000,
+    precioMayor: 20.000,
+    imagenes: [
+             "https://i.postimg.cc/mDZnTMqC/an1.jpg",
+             "https://i.postimg.cc/02KB59tG/an2.jpg",
+]  
+},
+
+// PRODUCTO 31
+{
+    nombre: "Babydoll Luciana",
+    descripcion: "M y L. Babydoll y tanga.",
+    precioUnidad: 70.000,
+    precioMayor: 33.000,
+    imagenes: [
+             "https://i.postimg.cc/zBfxsNb7/an3.jpg",
+             "https://i.postimg.cc/WzFX477t/an4.jpg",
+             "https://i.postimg.cc/ry7LNn3R/an5.jpg",
+             "https://i.postimg.cc/dtdcHRKY/an6.jpg",   
+             "https://i.postimg.cc/wjQ8H6vC/an7.jpg",
+             "https://i.postimg.cc/XJXTwdgm/an8.jpg",
+             "https://i.postimg.cc/hjwNMvy7/an9.jpg"
+]
+},
+
+// PRODUCTO 32
+{
+    nombre: "conjunto Lola",
+    descripcion: "Talla Unica. top y tanga.",
+    precioUnidad: 45.000,
+    precioMayor: 24.000,
+    imagenes: [
+            "https://i.postimg.cc/J4qCCrtq/l1.jpg",
+            "https://i.postimg.cc/Pr6VMPCx/l2.jpg",
+            "https://i.postimg.cc/Prq2NT22/l3.jpg",
+            "https://i.postimg.cc/5NHLZ0sP/l4.jpg",
+            "https://i.postimg.cc/W47kMJ4y/l5.jpg",
+            "https://i.postimg.cc/tRcVtbX9/l6.jpg",
+            "https://i.postimg.cc/9z303WMw/l7.jpg"
+]
+},
+
+// PRODUCTO 33
+{
+    nombre: "Body Fatima",
+    descripcion: "M y L.",
+    precioUnidad: 50.000,
+    precioMayor: 30.000,
+    imagenes: [
+         "https://i.postimg.cc/Ssd86YDP/fb1.jpg",
+         "https://i.postimg.cc/Xqv5QNP9/fb2.jpg",
+         "https://i.postimg.cc/L4yLhfq6/fb3.jpg",
+         "https://i.postimg.cc/Dy8sGZLv/fb4.jpg",
+         "https://i.postimg.cc/RZtHPDgG/fb5.jpg",
+         "https://i.postimg.cc/Bvc13191/fb6.jpg",
+         "https://i.postimg.cc/qR1hhVvZ/fb7.jpg",
+         "https://i.postimg.cc/zXbbBQZ6/fb8.jpg"
+]
+},
+
+// PRODUCTO 34
+{
+    nombre: "Camelia",
+    descripcion: "S M L XL. Con varilla.",
+    precioUnidad: 45.000,
+    precioMayor: 35.000,
+    imagenes: [
+            "https://i.postimg.cc/zftH3YBt/cc1.jpg",
+            "https://i.postimg.cc/50XYCKQw/cc2.jpg",
+            "https://i.postimg.cc/rmD0rZRx/cc3.jpg",
+            "https://i.postimg.cc/Y9vGWDLQ/cc4.jpg",
+            "https://i.postimg.cc/pTmhFc5f/cc5.jpg",
+            "https://i.postimg.cc/wv1ym4RN/cc6.jpg",
+            "https://i.postimg.cc/V6JrCZ0C/cc7.jpg",
+            "https://i.postimg.cc/rmD0rZRR/cc8.jpg"
+]
+},
+
+// PRODUCTO 35
+{
+    nombre: "Docena Tanga Greta",
+    descripcion: "Tangas surtidas en varios colores.",
+    precioUnidad: 12.000,
+    precioDocena: 70.000,
+    imagenes: [
+          "https://i.postimg.cc/pLjsDkzv/tg1.jpg",
+          "https://i.postimg.cc/mrG8VMy7/tg2.jpg",
+          "https://i.postimg.cc/zBzpYrQx/tg3.jpg",
+          "https://i.postimg.cc/kGDcDyqj/tg4.jpg",
+          "https://i.postimg.cc/5yGmzF2Z/tg5.jpg",
+          "https://i.postimg.cc/MKM5Stsf/tg6.jpg",
+          "https://i.postimg.cc/Dw1cW0kH/tg7.jpg",
+          "https://i.postimg.cc/cJZBfWdx/tg8.jpg",
+          "https://i.postimg.cc/5t3q3rtg/tg9.jpg",
+          "https://i.postimg.cc/kGVQ7Xvw/tg10.jpg"
+]
+},
+
+// PRODUCTO 36
+{
+    nombre: "Pijama Satin",
+    descripcion: "M L. short y blusa en encaje.",
+    precioUnidad: 45.000,
+    precioMayor: 33.000,
+    imagenes: [
+         "https://i.postimg.cc/xTMsmtL6/pj1.jpg",
+         "https://i.postimg.cc/Jz8p5Zq4/pj2.jpg"
+]
+},
+
+// PRODUCTO 37
+{
+    nombre: "Conjunto polilicra",
+    descripcion: "Talla Unica.",
+    precioUnidad: 45.000,
+    precioMayor: 28.000,
+    imagenes: [
+           "https://i.postimg.cc/tgTtB5V6/cp1.jpg",
+           "https://i.postimg.cc/hjQ8Btry/cp2.jpg",
+           "https://i.postimg.cc/D0Vry3pw/cp3.jpg",
+           "https://i.postimg.cc/44tv2nnd/cp4.jpg",
+           "https://i.postimg.cc/5NVBh1Fm/cp5.jpg",
+           "https://i.postimg.cc/8CjMRzq7/cp6.jpg"
+]
+},
+
+// PRODUCTO 38
+{
+    nombre: "Kattleya",
+    descripcion: "S M L XL. Top tanga y liguero.",
+    precioUnidad: 70.000,
+    precioMayor: 35.000,
+    imagenes: [
+            "https://i.postimg.cc/156QzkMg/kt1.jpg",
+            "https://i.postimg.cc/rwN215Bz/kt2.jpg",
+            "https://i.postimg.cc/MGsk4qZ9/kt3.jpg",
+            "https://i.postimg.cc/d1LMcpLt/kt4.jpg",
+            "https://i.postimg.cc/pT7wWCFS/kt5.jpg",
+            "https://i.postimg.cc/qB6fbffH/kt6.jpg"
+]
+},
+
+// PRODUCTO 39
+{
+    nombre: "Azalea",
+    descripcion: "S M L XL.",
+    precioUnidad: 45.000,
+    precioMayor: 29.000,
+    imagenes: [
+            "https://i.postimg.cc/05Yn2ZDp/az1.jpg",
+            "https://i.postimg.cc/jdvhy5MB/az2.jpg",
+            "https://i.postimg.cc/8z5m4S3H/az3.jpg",
+            "https://i.postimg.cc/HL84Gtdv/az4.jpg",
+            "https://i.postimg.cc/SsW6RNX7/az5.jpg",
+            "https://i.postimg.cc/prRDFbzv/az6.jpg"        
+]
+},
+
+// PRODUCTO 40
+{
+    nombre: "Pijama Julieta",
+    descripcion: "Talla Unica.",
+    precioUnidad: 45.000,
+    precioMayor: 28.000,
+    imagenes: [
+             "https://i.postimg.cc/26mqHdyp/j1.jpg", 
+             "https://i.postimg.cc/NFjKtgRd/j2.jpg",
+             "https://i.postimg.cc/CMcZNqVB/j3.jpg",
+             "https://i.postimg.cc/65S8sxqt/j4.jpg",
+             "https://i.postimg.cc/LsFhXkzg/j5.jpg",
+             "https://i.postimg.cc/YSN0m43x/j6.jpg",
+             "https://i.postimg.cc/26z6dzcg/j7.jpg"
+] 
+},
+
+// PRODUCTO 41
+{
+    nombre: "Pantalon Sofia",
+    descripcion: "M y L. Pantalon y blusa.",
+    precioUnidad: 65.000,
+    precioMayor: 35.000,
+    imagenes: [
+            "https://i.postimg.cc/sDZVhQfW/sp1.jpg",
+            "https://i.postimg.cc/7Z3wKFTs/sp2.jpg",
+            "https://i.postimg.cc/0yYPVTwb/sp3.jpg"
+]
+},
+
+// PRODUCTO 42
+{
+    nombre: "Pantalon Camiseta",
+    descripcion: "Talla Unica.",
+    precioUnidad: 65.000,
+    precioMayor: 36.000,
+    imagenes: [
+            "https://i.postimg.cc/85jCXyGK/pc1.jpg",
+            "https://i.postimg.cc/ZYvRrDVv/pc2.jpg",
+            "https://i.postimg.cc/rFSwHR6V/pc3.jpg",
+            "https://i.postimg.cc/9ffXzxrS/pc4.jpg",
+            "https://i.postimg.cc/hjkKycpR/pc5.jpg"
+]
+},
+
+// PRODUCTO 43
+{
+    nombre: "Trio Camiseta",
+    descripcion: "Talla Unica. short blusa y tanga.",
+    precioUnidad: 50.000,
+    precioMayor: 31.000,
+    imagenes: [
+           "https://i.postimg.cc/RhBjJFgn/tc1.jpg",
+           "https://i.postimg.cc/kGvLQmZP/tc2.jpg",
+           "https://i.postimg.cc/65Bk987P/tc3.jpg"
+]
+},
+
+// PRODUCTO 44
+{
+    nombre: "Body broche",
+    descripcion: "M y L.",
+    precioUnidad: 50.000,
+    precioMayor: 30.000,
+    imagenes: [
+           "https://i.postimg.cc/GhNxXN1k/bb1.jpg",
+           "https://i.postimg.cc/wBYcpmM3/bb2.jpg",
+           "https://i.postimg.cc/pdMYHFrs/bb3.jpg",
+           "https://i.postimg.cc/3wjjJx0c/bb4.jpg",
+           "https://i.postimg.cc/HxpwJ1QY/bb5.jpg",
+           "https://i.postimg.cc/mD8QCpwn/bb6.jpg",
+           "https://i.postimg.cc/prSz193P/bb7.jpg",
+           "https://i.postimg.cc/NGC60VFV/bb8.jpg",
+           "https://i.postimg.cc/DyWq4gb8/bb9.jpg"
+]
+},
+
+// PRODUCTO 45
+{
+    nombre: "Pijama Carlota ",
+    descripcion: "S M L. short y camiseta",
+    precioUnidad: 45.000,
+    precioMayor: 34.000,
+    imagenes: [
+             "https://i.postimg.cc/L5gn5xQr/pjc1.jpg",
+             "https://i.postimg.cc/hvQfv237/pjc2.jpg",
+             "https://i.postimg.cc/T2K9nGz1/pjc3.jpg",
+             "https://i.postimg.cc/c4YB5h1z/pjc4.jpg",
+             "https://i.postimg.cc/zGFSqfh8/pjc5.jpg",
+             "https://i.postimg.cc/jjq62r6S/pjc6.jpg",
+             "https://i.postimg.cc/YSX6my8G/pjc7.jpg"  
+]
+},
+
+// PRODUCTO 46
+{
+    nombre: "Azucena",
+    descripcion: "Talla Unica. top tanga y falda.",
+    precioUnidad: 50.000,
+    precioMayor: 31.000,
+    imagenes: [
+             "https://i.postimg.cc/5yW6HBcL/azu1.jpg",
+             "https://i.postimg.cc/kMW20p8Y/azu2.jpg",
+             "https://i.postimg.cc/MppXjZLD/azu3.jpg",
+             "https://i.postimg.cc/t4vJdQQR/azu4.jpg"
+ ]
+},
+
+// PRODUCTO 47
+{
+    nombre: "Flo de loto",
+    descripcion: "S M L XL. Top y brasilera con liguero.",
+    precioUnidad: 70.000,
+    precioMayor: 32.000,
+    imagenes: [
+             "https://i.postimg.cc/zBFNq6N1/flor1.jpg",
+             "https://i.postimg.cc/dQnFXbn3/flor2.jpg",
+             "https://i.postimg.cc/JzHWsG8d/flor3.jpg",
+             "https://i.postimg.cc/tRr0DhCV/flor4.jpg",
+             "https://i.postimg.cc/QCzyDJHw/flor5.jpg",
+             "https://i.postimg.cc/VL3VH4yC/flor6.jpg",
+             "https://i.postimg.cc/vBHq6N9Q/flor7.jpg",
+             "https://i.postimg.cc/xjZxcg1B/flor8.jpg",
+             "https://i.postimg.cc/jSHZ3b4s/flor9.jpg",
+             "https://i.postimg.cc/Fzkxy5KR/flor10.jpg"
+]
+},
+
+// PRODUCTO 48
+{
+    nombre: "Jazmin",
+    descripcion: "S M L XL. Top y tanga con cinta trasera.",
+    precioUnidad: 45.000,
+    precioMayor: 30.000,
+    imagenes: [
+             "https://i.postimg.cc/262KywL0/jm1.jpg",
+             "https://i.postimg.cc/XN1P0sbw/jm2.jpg",
+             "https://i.postimg.cc/NfWPKLFS/jm3.jpg",
+             "https://i.postimg.cc/vHpS4DDm/jm4.jpg",
+             "https://i.postimg.cc/5tJ7mGwp/jm5.jpg",
+             "https://i.postimg.cc/LsVyQTD4/jm6.jpg",
+             "https://i.postimg.cc/2y126fDj/jm7.jpg",
+             "https://i.postimg.cc/T2stshVK/jm8.jpg",
+             "https://i.postimg.cc/JzVP1gdt/jm9.jpg",
+             "https://i.postimg.cc/bwxLdTK4/jm10.jpg"
+]
+},
+
+// PRODUCTO 49
+{
+    nombre: "Girasol",
+    descripcion: "S M L XL.",
+    precioUnidad: 45.000,
+    precioMayor: 28.000,
+    imagenes: [
+              "https://i.postimg.cc/5N1STvHL/g1.jpg",
+              "https://i.postimg.cc/K88rv2DS/g2.jpg",
+              "https://i.postimg.cc/0yXGzBVw/g3.jpg",
+              "https://i.postimg.cc/W4DGgwKs/g4.jpg",
+              "https://i.postimg.cc/W3g0fbT5/g5.jpg",
+              "https://i.postimg.cc/sxJ7s6Bh/g6.jpg",
+              "https://i.postimg.cc/yYV0vH5S/g7.jpg",
+              "https://i.postimg.cc/YqbYPPBp/g8.jpg",
+              "https://i.postimg.cc/htYxD7GZ/g9.jpg",
+              "https://i.postimg.cc/htYxD7GZ/g9.jpg"   
+]
+},
+
+// PRODUCTO 50
+{
+    nombre: "Violeta",
+    descripcion: "S M L XL.",
+    precioUnidad: 45.000,
+    precioMayor: 28.000,
+    imagenes: [
+             "https://i.postimg.cc/3RfWBsDS/vt1.jpg",
+             "https://i.postimg.cc/bv3vy7gC/vt2.jpg",
+             "https://i.postimg.cc/jS85tVZ9/vt3.jpg",
+             "https://i.postimg.cc/4xFJj639/vt4.jpg",
+             "https://i.postimg.cc/CMNpWGv6/vt5.jpg",
+             "https://i.postimg.cc/BQVk0Mxs/vt6.jpg",
+             "https://i.postimg.cc/kgS1d9J6/vt7.jpg",
+             "https://i.postimg.cc/zv372Y2N/vt8.jpg",
+             "https://i.postimg.cc/hPksswLq/vt9.jpg",
+             "https://i.postimg.cc/JnYckdr6/vt10.jpg",
+             "https://i.postimg.cc/ZKdFWc1g/vt11.jpg"
+]
+},
+
+// PRODUCTO 51
+{
+    nombre: "Lirios",
+    descripcion: "S M L XL.",
+    precioUnidad: 45.000,
+    precioMayor: 25.000,
+    imagenes: [
+             "https://i.postimg.cc/SRDsswmR/lr1.jpg",
+             "https://i.postimg.cc/bvkwbGzX/lr2.jpg",
+             "https://i.postimg.cc/GmYCgZZ0/lr3.jpg",
+             "https://i.postimg.cc/fyrN1Zw8/lr4.jpg",
+             "https://i.postimg.cc/SKqwTj68/lr5.jpg",
+             "https://i.postimg.cc/FRC8HZ2J/lr6.jpg",
+             "https://i.postimg.cc/kgNHb9kY/lr7.jpg",
+             "https://i.postimg.cc/sfkyPjNP/lr8.jpg",
+             "https://i.postimg.cc/YSDBvMFm/lr9.jpg",
+             "https://i.postimg.cc/7LWjxXvC/lr10.jpg"
+]
+},
+
+// PRODUCTO 52
+{
+    nombre: "Batola:Lupita",
+    descripcion: "M y L.",
+    precioUnidad: 45.000,
+    precioMayor: 32.000,
+    imagenes: [
+             "https://i.postimg.cc/PrMXtGSZ/bl1.jpg",
+             "https://i.postimg.cc/wM0GGkkK/bl2.jpg",
+             "https://i.postimg.cc/W4gfvVnP/bl3.jpg",
+             "https://i.postimg.cc/gJ4sz2L8/bl4.jpg",
+             "https://i.postimg.cc/qMNwr0Jw/bl5.jpg",
+             "https://i.postimg.cc/cLYcKm8Y/bl6.jpg",
+             "https://i.postimg.cc/sxqpxQj2/bl7.jpg",
+             "https://i.postimg.cc/Dzn1SKTB/bl8.jpg",
+             "https://i.postimg.cc/76QztGTn/bl9.jpg"
+]
+},
+
+// PRODUCTO 53
+{
+    nombre: "Conjunto Aleli",
+    descripcion: "S M L XL.",
+    precioUnidad: 45.000,
+    precioMayor: 28.000,
+    imagenes: [
+            "https://i.postimg.cc/0QgrHTkG/ale1.jpg",
+            "https://i.postimg.cc/gJvr9gr0/ale2.jpg",
+            "https://i.postimg.cc/mDNZphpp/ale3.jpg",
+            "https://i.postimg.cc/q72pgzrw/ale4.jpg"
+]
+},
+
+// PRODUCTO 54
+{
+    nombre: "Conjunto Thalia",
+    descripcion: "Talla Unica. top y cachetero.",
+    precioUnidad: 45.000,
+    precioMayor: 27.000,
+    imagenes: [
+            "https://i.postimg.cc/Dz0YYNjw/th1.jpg",
+            "https://i.postimg.cc/3RDf3vHM/th2.jpg",
+            "https://i.postimg.cc/SR6ZMbsG/th3.jpg",
+            "https://i.postimg.cc/qvb1nLkj/th4.jpg",
+            "https://i.postimg.cc/KcPQQFGH/th5.jpg",
+            "https://i.postimg.cc/HndwFcYR/th6.jpg",
+            "https://i.postimg.cc/G3xJGQzb/th7.jpg"
+]
+},
+
+// PRODUCTO 55
+{
+    nombre: "Pijama Totu",
+    descripcion: "M y L. short y blusa.",
+    precioUnidad: 45.000,
+    precioMayor: 27.000,
+    imagenes: [
+            "https://i.postimg.cc/j5FTFNQZ/pt1.jpg",
+            "https://i.postimg.cc/c1PgK8G0/pt2.jpg",
+            "https://i.postimg.cc/7LBbq5nV/pt3.jpg",
+            "https://i.postimg.cc/DyV0fk1w/pt4.jpg",
+            "https://i.postimg.cc/hvVSQvVG/pt5.jpg",
+            "https://i.postimg.cc/pXYW292m/pt6.jpg"
+]
+}
+
+ 
+];
+
+// ============================================
+// CREAR LOS 55 PRODUCTOS AUTOMATICAMENTE
+// ============================================
+
+const contenedor = document.getElementById("productos");
+
+for (let i = 0; i < 55; i++) {
+
+    // Si existe el producto, usa sus datos.
+    // Si no existe, crea uno automáticamente.
+    const producto = productos[i] || {
+        nombre: "Producto " + String(i + 1).padStart(2, "0"),
+        descripcion: "Producto próximamente disponible.",
+        precioUnidad: 0,
+        precioMayor: 0,
+        imagenes: []
+    };
+
+    // Filtrar enlaces válidos
+    const fotosValidas = (producto.imagenes || []).filter(
+        foto => foto &&
+        !foto.startsWith("LINK_") &&
+        foto.startsWith("http")
+    );
+
+    // Imagen para los productos que todavía no tienen foto
+    const fotos = fotosValidas.length > 0
+        ? fotosValidas
+        : [
+            "https://placehold.co/600x800/f1e7e1/8b7468?text=By+Kanela+Sotto"
+        ];
+
+    let indice = 0;
+
+    // Crear tarjeta
+    const tarjeta = document.createElement("div");
+    tarjeta.className = "producto";
+
+    tarjeta.innerHTML = `
+        <div class="fotos">
+
+            <img
+                class="foto-producto"
+                src="${fotos[0]}"
+                alt="${producto.nombre}"
+                loading="lazy"
+            >
+
+            ${fotos.length > 1 ? `
+                <button class="flecha izquierda"
+                    aria-label="Foto anterior">‹</button>
+
+                <button class="flecha derecha"
+                    aria-label="Foto siguiente">›</button>
+
+                <div class="contador">
+                    1 / ${fotos.length}
+                </div>
+            ` : ""}
+
+        </div>
+
+        <h3 class="nombre">${producto.nombre}</h3>
+
+        <p class="descripcion">
+            ${producto.descripcion || ""}
+        </p>
+
+        <p class="precio">
+            Precio por unidad:
+            ${
+                producto.precioUnidad > 0
+                ? "$" + producto.precioUnidad.toLocaleString("es-CO") + " COP"
+                : "Por agregar"
+            }
+        </p>
+
+        <p class="precio-mayor">
+            Precio por mayor:
+            ${
+                producto.precioMayor > 0
+                ? "$" + producto.precioMayor.toLocaleString("es-CO") + " COP"
+                : "Por agregar"
+            }
+        </p>
+
+        <p class="referencia">
+            Ref. KS${String(i + 1).padStart(2, "0")}
+        </p>
+    `;
+
+    // Abrir imagen grande
+    const imagen = tarjeta.querySelector(".foto-producto");
+
+    imagen.addEventListener("click", () => {
+        window.open(fotos[indice], "_blank");
+    });
+
+    // Botones para cambiar fotos
+    if (fotos.length > 1) {
+
+        const contador = tarjeta.querySelector(".contador");
+        const botonDerecha = tarjeta.querySelector(".derecha");
+        const botonIzquierda = tarjeta.querySelector(".izquierda");
+
+        botonDerecha.addEventListener("click", () => {
+
+            indice = (indice + 1) % fotos.length;
+            imagen.src = fotos[indice];
+
+            contador.textContent =
+                `${indice + 1} / ${fotos.length}`;
+        });
+
+        botonIzquierda.addEventListener("click", () => {
+
+            indice = (indice - 1 + fotos.length) % fotos.length;
+            imagen.src = fotos[indice];
+
+            contador.textContent =
+                `${indice + 1} / ${fotos.length}`;
+        });
+    }
+
+    // Agregar tarjeta a la página
+    contenedor.appendChild(tarjeta);
+}
+</script>
+
+</body>
+</html>
+
